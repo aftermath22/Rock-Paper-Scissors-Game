@@ -113,7 +113,7 @@
                     }
                     
                     else if(computerMove=='scissors'){
-                        result='It was Tie';
+                        result='It was a Tie';
                     }
                 }
 
