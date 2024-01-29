@@ -1,0 +1,54 @@
+body{
+    background-color: rgb(25,25,25); 
+    color: white; 
+    font-family: Arial;
+}
+
+button {
+    cursor: pointer;
+}
+
+.move-icon{
+    height: 60px;
+    width: 60px;
+}
+
+.move-button{
+    background-color: transparent;
+    border: 3px solid white;
+    padding:50px;
+    border-radius: 1000px;
+    margin:5px;
+}
+
+.js-outcome{
+    font-size:30px;
+    font-weight: bold;
+}
+
+.reset-button,.auto-play-button{
+    font-size: 20px;
+    padding:10px;
+    border: none;
+    border-radius: 5px;
+    transition:opacity 0.15s;
+}
+
+.reset-button:hover,.auto-play-button:hover{
+    opacity: 0.7;
+}
+
+.js-score{
+    margin-top: 60px;
+}
+
+p {
+    font-size: 20px;
+}
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+

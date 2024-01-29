@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors</title>
+        <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+        <link rel="stylesheet" href="../style/rock-paper-scissors.css">
+        <script src="../script/rock-paper-scissors.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <h1>Rock Paper Scissors</h1>
+            <br><br>
+            <div>
+                <button class="move-button js-rock-button" onclick="
+                    playgame('rock');
+                "> <img src="../images/rock-emoji.png" class="move-icon"></button>
+                
+                <button class="move-button js-paper-button" onclick="
+                    playgame('paper');
+                "> <img src="../images/paper-emoji.png" class="move-icon"> </button>
+
+                <button class="move-button js-scissor-button" onclick=" 
+                    playgame('scissors');
+                "> <img src="../images/scissors-emoji.png" class="move-icon" > </button>
+                
+            </div>
+            <br><br>
+
+
+            <p class="js-outcome"></p>
+
+
+            <p class="js-choice"></p>
+
+
+            <p class="js-score"></p>
+
+            <div>
+                <button  class="reset-button" onclick="
+                /*resetting values now wont work as the value is actually stored in the local storage
+                so even if press the reset button and reload the site, the values will remain
+                to fix that remove the local storage of score object
+                */
+                score.wins=0;
+                score.loses=0;
+                score.ties=0;
+            localStorage.removeItem('score'); 
+                //alert('Score was Reset');
+
+                //reset wont work until element is updated so for that
+                updateelem();
+                //document.querySelector('.js-outcome').innerHTML='';
+                //document.querySelector('js-choice').innerHTML='';
+                ">Reset Score</button>
+
+                <button id="autoPlayBtn" class="auto-play-button" onclick="
+                autoplay()">Auto Play</button>
+            </div>
+        </div>
+    </body>
+</html>
