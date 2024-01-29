@@ -128,7 +128,7 @@
 
                 document.querySelector('.js-outcome').innerHTML=result;
                 document.querySelector('.js-choice').innerHTML=`You 
-                <img src="../images/${usrmove}-emoji.png" class="move-icon"> <img src="../images/${computerMove}-emoji.png" class="move-icon"> Computer`;
+                <img src="images/${usrmove}-emoji.png" class="move-icon"> <img src="images/${computerMove}-emoji.png" class="move-icon"> Computer`;
 
                 updateelem();
 
