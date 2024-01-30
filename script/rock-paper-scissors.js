@@ -3,11 +3,16 @@
             //so after pressing reset button and reloading the page, score=null
             //and when we press any other button, will give an error as we are trying to update a null value
             //so to handle that error use an if condition
+            
             let score=JSON.parse(localStorage.getItem('score'))|| {
                 wins:0,
                 loses:0,
                 ties:0
             };
+
+            function updateelem(){
+                document.querySelector('.js-score').innerHTML=`Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`;
+            }
             /*to get the score from the local storage i.e. not losing the count of wins,loses and ties even after reload, follow the above method 
 
             code below will reset the count after every reload
@@ -31,7 +36,8 @@
             let intervalid;
             let isautoplaying=false;
 
-            updateelem();
+            // updateelem();
+
         function autoplay(){
             if(!isautoplaying){
                 document.getElementById("autoPlayBtn").style.backgroundColor = "grey";
@@ -49,9 +55,9 @@
         }
 
         //calling playgame func when rock button is clicked using addeventlistener
-        document.querySelector('.js-rock-button').addEventListener('click',()=>{
-            playgame('rock');
-        })
+        // document.querySelector('.js-rock-button').addEventListener('click',()=>{
+        //     playgame('rock');
+        // })
 
         //adding eventlisteners for keydown
         /*
@@ -60,16 +66,21 @@
                          s-scissors
         */
         //onkeydown and keydown have special return values called event and it helps us to get what key was enter using event.key
-        document.body.addEventListener('keydown',(event)=>{
-            // console.log(event.key);
-            if(event.key==='1')
-            playgame('rock');
-            else if(event.key==='2')
-            playgame('paper');
-            else if(event.key==='3')
-            playgame('scissors');
-        });
 
+
+        window.addEventListener('DOMContentLoaded',function(){
+            document.body.addEventListener('keydown',(event)=>{
+                console.log(event.key);
+                if(event.key==='1')
+                playgame('rock');
+                else if(event.key==='2')
+                playgame('paper');
+                else if(event.key==='3')
+                playgame('scissors');
+            });
+        })
+
+        
 
             function playgame(usrmove){
                 let computerMove=compmove();
@@ -134,11 +145,6 @@
 
                /* alert(`You picked ${usrmove}. Computer picked ${computerMove}. ${result}
                 Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`);*/
-            }
-
-            function updateelem(){
-                document.querySelector('.js-score')
-                .innerHTML=`Wins: ${score.wins}, Loses: ${score.loses}, Ties: ${score.ties}`;
             }
 
             function compmove(){
